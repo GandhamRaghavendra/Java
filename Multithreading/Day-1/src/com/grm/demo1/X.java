@@ -1,4 +1,4 @@
-package com.grm.main;
+package com.grm.demo1;
 
 public class X extends Thread{
 

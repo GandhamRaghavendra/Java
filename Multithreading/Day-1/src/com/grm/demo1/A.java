@@ -1,4 +1,4 @@
-package com.grm.main;
+package com.grm.demo1;
 /*
 We implement threads either of the following two ways: 
 1. By implementing Runnable Interface
