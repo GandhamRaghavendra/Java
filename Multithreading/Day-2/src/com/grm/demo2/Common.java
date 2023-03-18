@@ -1,7 +1,7 @@
-package com.grm.demo1;
+package com.grm.demo2;
 
 class Common {
-	public  void fun1(String name) {
+	public void fun1(String name) {
 		System.out.print("Welcome");
 		try {
 			Thread.sleep(1000);
@@ -43,17 +43,22 @@ class ThreadB extends Thread {
 
 class Main {
 	public static void main(String[] args) {
-		Common c = new Common();
+		Common c1 = new Common();
+		Common c2 = new Common();
 
-		// sharing same Common object to two thread
-		ThreadA t1 = new ThreadA(c, "Ram");
-		ThreadB t2 = new ThreadB(c, "Shyam");
+		// sharing two different Common object to two different threads..
 
-		// Here two threads are accessing same fun1() same time so we will get output
-		// like "WelcomeWelcome RamShyam"
+		ThreadA t1 = new ThreadA(c1, "Ram");
+		ThreadB t2 = new ThreadB(c2, "Shyam");
+
+		// Here also we will get unexpected output even though threads are acting on two
+		// diff objects..
 		
-		// BUT IF WE ARE MAKING THE fun() SYNCHRONIZED THEN MULTIPLE THREAD CAN'T ACCESS
-		// fun() SAME TIME AND WE WILL GET PROPER OUTPUT
+		// Because both threads t1 and t2 having object level locks
+
+		// (*) But if we mark the synchronized fun1() method of class Common as "static"
+		//     then we will get the regular output irrespective of multiple objects also.
+
 		t1.start();
 		t2.start();
 	}

@@ -1,0 +1,56 @@
+Class Level lock:
+
+In our previous Common class example
+
+if there are two threads try to operate on "two different object" of Common.java class, then we will get the irregular 
+
+output even though fun1() is synchronized, because both threads operates on two different objects, and they are 
+
+holding the locks of two different objects.
+
+But if we mark the synchronized fun1() method of class Common as "static" then we will get the regular output 
+irrespective of multiple objects also.
+
+The reason behind this is because :
+
+In java as there is a unique lock for each object of a class, similarly there is a unique lock for each class also. 
+
+So there are two types of lock in java:
+
+1. object level lock(it is unique for each object of a class)
+
+2. class level lock(it is unique for each class)
+
+If a thread try to execute a static synchronized method then it required class level lock. 
+
+object lock and class level lock both are independent and there is no link between them.
+
+While a thread is executing a static synchronized method, the remaining threads are not allowed to execute any other 
+static synchronized method of that class simultaneously (**even on the multiple object of that class also)
+but remaining threads are allowed to execute normal static and synchronized non-static methods and normal non- 
+static methods simultaneously.
+
+*************************NEW*************************
+Synchronization concept:
+
+-->Internally synchronization concept is implemented by using lock concept.
+
+-->Every object in a java has a unique lock. most of the time the lock is unlocked.
+
+-->When an object has one or more synchronized methods ,a thread can enter into a synchronized method or block 
+   only when If that thread have the lock of that object.
+   
+-->The locks are not per methods basis, instead they are per object basis.
+
+-->The thread won't release the lock until it completes the synchronized methods, so while that thread is holding the 
+   lock of that object. once a synchronized method execution completed then thread releases the lock automatically.
+   
+-->Until the lock is  released (completion of synchronized method.)no other threads can enter any of the
+   synchronized methods or blocks of that object.
+   
+-->So if an object has synchronized methods or blocks, a threads can enter any one of the synchronized methods or 
+   block only if the lock of that object is  available.
+   
+-->Acquiring and releasing the lock internally taken care by JVM, programmer are not responsible for this activity.
+
+*************************NEW*************************
