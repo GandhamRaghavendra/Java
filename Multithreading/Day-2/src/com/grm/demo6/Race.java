@@ -1,4 +1,4 @@
-package com.grm.demo4;
+package com.grm.demo6;
 
 public class Race {
 };
