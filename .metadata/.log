@@ -202,3 +202,75 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-10 15:58:10.970
 !MESSAGE Boot LS startup time from start to initialized: 2904ms
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-10 16:03:10.979
+!MESSAGE Entering DelegatingStreamConnectionProvider()
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-10 16:03:10.980
+!MESSAGE DelegatingStreamConnectionProvider classloader = org.eclipse.osgi.internal.loader.EquinoxClassLoader@55d3bab7[org.springframework.tooling.boot.ls:1.38.0.202208110704(id=567)]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-10 16:03:10.981
+!MESSAGE SpringBootLanguageServer exists!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-10 16:03:13.869
+!MESSAGE Boot LS startup time from start to initialized: 2886ms
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-10 16:04:57.670
+!MESSAGE Entering DelegatingStreamConnectionProvider()
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-10 16:04:57.671
+!MESSAGE DelegatingStreamConnectionProvider classloader = org.eclipse.osgi.internal.loader.EquinoxClassLoader@55d3bab7[org.springframework.tooling.boot.ls:1.38.0.202208110704(id=567)]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-10 16:04:57.672
+!MESSAGE SpringBootLanguageServer exists!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-10 16:05:01.007
+!MESSAGE Boot LS startup time from start to initialized: 3332ms
+
+!ENTRY org.eclipse.lsp4e 2 0 2023-04-10 16:05:01.267
+!MESSAGE Timeout waiting for data to generate LS hover
+!STACK 0
+java.util.concurrent.TimeoutException
+	at java.base/java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1960)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2095)
+	at org.eclipse.lsp4e.jdt.LSJavaHoverProvider.getHoverInfo2(LSJavaHoverProvider.java:70)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-10 18:45:34.694
+!MESSAGE Entering DelegatingStreamConnectionProvider()
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-10 18:45:34.696
+!MESSAGE DelegatingStreamConnectionProvider classloader = org.eclipse.osgi.internal.loader.EquinoxClassLoader@55d3bab7[org.springframework.tooling.boot.ls:1.38.0.202208110704(id=567)]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-10 18:45:34.697
+!MESSAGE SpringBootLanguageServer exists!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-10 18:45:37.883
+!MESSAGE Boot LS startup time from start to initialized: 3184ms
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-10 18:57:03.294
+!MESSAGE Entering DelegatingStreamConnectionProvider()
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-10 18:57:03.295
+!MESSAGE DelegatingStreamConnectionProvider classloader = org.eclipse.osgi.internal.loader.EquinoxClassLoader@55d3bab7[org.springframework.tooling.boot.ls:1.38.0.202208110704(id=567)]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-10 18:57:03.296
+!MESSAGE SpringBootLanguageServer exists!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-10 18:57:06.492
+!MESSAGE Boot LS startup time from start to initialized: 3194ms
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-10 18:58:40.592
+!MESSAGE Entering DelegatingStreamConnectionProvider()
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-10 18:58:40.593
+!MESSAGE DelegatingStreamConnectionProvider classloader = org.eclipse.osgi.internal.loader.EquinoxClassLoader@55d3bab7[org.springframework.tooling.boot.ls:1.38.0.202208110704(id=567)]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-10 18:58:40.594
+!MESSAGE SpringBootLanguageServer exists!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-10 18:58:43.424
+!MESSAGE Boot LS startup time from start to initialized: 2829ms
