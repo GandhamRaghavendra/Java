@@ -37,19 +37,6 @@ public class ProjectSecurityConfig {
 		return http.build();
 	}
 	
-//	***** Here we will replace this InmemoryUserDetailsManager with Spring Data JPA *****
-	
-//	@Bean
-//	public InMemoryUserDetailsManager userDetails() {
-//	
-//		InMemoryUserDetailsManager userDetailsService = new InMemoryUserDetailsManager();
-//	  UserDetails admin = User.withUsername("admin").password("12345").authorities("admin").build();
-//	    UserDetails user = User.withUsername("user").password("12345").authorities("read").build();
-//	    userDetailsService.createUser(admin);
-//	    userDetailsService.createUser(user);
-//	    return userDetailsService;
-//	}
-
 	@Bean
 	public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
