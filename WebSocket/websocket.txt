@@ -1,0 +1,157 @@
+Socket application 
+
+                HTTP
+sw1 -------TCP-------------sw2
+browser/client                  webserver
+
+
+Websockets 
+
+
+Http is a stateless protocol, which means after getting the response for a perticular
+request, connection will be broken, and next request does not know anything about the 
+previous request.
+
+--to remember the client previous conversession even though http is a stateless protocol
+we need to follow some techniques:
+
+1. Http Session
+2. Cookies
+3. Hidden form fields
+4. URL writting
+6. tokens (jwt)  
+
+
+Websocket:
+==========
+
+--WebSocket is a lightweight communication protocol built on top of TCP (Transmission Control Protocol). It enables real-time, bidirectional communication between a client and a server.
+
+--once a websocket connection is established between a client and a server, both can exchange information endlessly until the connection is closed by any one of the parties.
+
+
+Difference between Http protocol and Websocket :
+=======================================
+
+WebSocket and HTTP are both communication protocols, but they have significant differences in their characteristics and usage.
+
+1. HTTP protocol follows a request-response model, where a client sends a request to the server, and the server responds with the requested data. This model is primarily suited for client-server communication with a stateless nature, where each request is independent.
+Where as WebSocket protocol, enables real-time bidirectional communication between a client and a server. It allows both the client and the server to send messages to each other without the need for initiating a request-response cycle for each message.
+
+2. HTTP is a stateless protocol, which means that each request from a client is treated as an independent transaction, and the server does not maintain any information about the previous requests or the client's state.
+where as WebSocket provides a persistent connection between the client and the server. Once the WebSocket connection is established, it remains open until explicitly closed by either the client or the server. This persistent connection allows for efficient real-time communication and eliminates the need for continuous request/response cycles.
+
+3. HTTP has additional overhead due to its request-response nature. For each request, there are headers and potentially cookies that need to be sent along with the payload. This overhead can result in additional latency and resource consumption. Where as WebSocket has minimal overhead compared to HTTP. Once the initial handshake is completed, the subsequent message exchange occurs with minimal protocol-related overhead. This efficiency enables faster and more efficient communication, particularly in scenarios where frequent data exchange is required.
+
+4. HTTP is well-suited for traditional web applications that primarily involve request-response interactions, such as fetching web pages, submitting forms, or retrieving resources from a server.
+Where as WebSocket is ideal for real-time applications that require frequent and immediate data updates, such as chat applications, real-time collaboration tools, live feed,and multiplayer gaming applications.
+
+
+
+So with the above point we can say the key features of the WebSocket is:
+
+1. Bi-directional Communication:
+WebSocket allows both the client and the server to send messages to each other simultaneously.
+This enables real-time updates and interactive communication between the two parties.
+
+2. Persistent Connection:
+Once a WebSocket connection is established, it remains open until closed explicitly.
+The persistent connection eliminates the need for continuous polling, reducing resource consumption.
+
+
+3. Low Overhead:
+WebSocket has minimal overhead compared to traditional HTTP-based protocols.
+The protocol's efficiency enables faster and more efficient communication between client and server.
+
+
+***using websocket we can communicate with the client and server asynchronously(non-blocking).
+
+
+--two applications can communicate with each other by 2 ways :
+
+1. using REST api call (spring boot  ------> spring boot )
+
+2. using messaging
+
+
+
+RabbitMQ
+ActiveMQ
+SimpleBroker :-------It is a in-memory message broker used in Spring boot application with websocket
+Apache Kafka
+
+
+STOMP: Streaming Text Oriented Messaging Protocol:
+=========================================
+ 
+Note: WebSocket itself is a communication protocol that provides a raw, low-level messaging channel between a client and a server. While WebSocket is capable of transmitting text and binary data, it doesn't inherently provide features for message routing, subscription management, or user-specific messaging.
+To handle these functionalities, the STOMP is used in conjunction with WebSocket. 
+
+STOMP is a higher-level messaging protocol that operates on top of WebSocket. It provides additional features and abstractions for message-based communication like:
+
+1. Message Routing:  allow messages to be targeted to specific subscribers. It enables publishers to send messages to specific destinations, and subscribers can selectively subscribe to and receive messages from those destinations.
+It allows STOMP clients to talk with any message broker supporting the protocol
+
+2. Subscription Management: STOMP provides mechanisms for clients to subscribe and unsubscribe from message destinations. This allows clients to control which messages they receive based on their interests and preferences.
+
+3. Header-based Message Transformation: STOMP includes headers that can be used to add metadata or customize the behavior of messages. These headers can be leveraged for various purposes, such as message filtering, message acknowledgment, or setting message expiration times.
+
+Interoperability: STOMP is designed to be language-agnostic and can be used with different programming languages and message brokers. It provides a standardized way of exchanging messages, making it easier to develop applications that communicate over WebSocket across different platforms and technologies.
+
+
+***Spring provides default support for an in-memory message broker, but other messaging protocols like RabbitMQ or ActiveMQ can be chosen.
+
+Example Scenario:
+
+Build a server that accepts messages carrying a user's name.
+In response, the server pushes greetings into a queue to which the client is subscribed.
+
+How the Websocket server internally works:
+==================================
+
+Even though the embedded Tomcat server will be used in a Spring Boot application, it will still acts as a WebSocket server when it comes to WebSocket communication. 
+
+The WebSocket server functionality is integrated into the server, allowing it to accept WebSocket connections, manage the lifecycle of these connections, and facilitate real-time bidirectional communication between clients and the server.
+
+
+
+In a typical WebSocket server implementation, a separate thread is not started for each client connection. Instead, a WebSocket server typically uses an event-driven or asynchronous I/O model to handle multiple client connections efficiently. Here's how it generally works:
+
+I. Event-Driven Model:
+
+WebSocket servers often employ an event-driven model where a single thread manages multiple client connections.
+This thread listens for incoming WebSocket events, such as new connections, data reception, and disconnections.
+When an event occurs, the server reacts accordingly by triggering the appropriate callbacks or event handlers.
+
+
+2. Asynchronous I/O:
+
+The WebSocket server uses asynchronous I/O operations to handle multiple connections without blocking the execution.
+This allows the server to handle numerous concurrent connections efficiently without the need for creating a separate thread for each connection.
+
+3. Non-Blocking Operations:
+
+The server performs non-blocking I/O operations, such as reading and writing data from/to the connected clients.
+This allows the server to handle multiple connections concurrently without waiting for each operation to complete before moving to the next connection.
+
+4.Thread Pool:
+
+To manage the execution of multiple connections, a WebSocket server may utilize a thread pool.
+The server assigns incoming connections to available threads from the pool.
+These threads handle the I/O operations for their respective connections, allowing the server to handle multiple connections simultaneously without creating a new thread for each connection.
+By utilizing an event-driven and asynchronous I/O approach, WebSocket servers can effectively manage multiple client connections using a limited number of threads. This approach optimizes resource utilization, improves scalability, and enables efficient handling of concurrent connections in real-time applications.
+
+
+
+
+to call the protected api, or to pass any request headers:
+
+var headers = {
+  'Authorization': 'Bearer <token>',
+  'Custom-Header': 'Value'
+};
+
+stompClient.connect(headers, function (frame) {
+  // Connect callback function
+});
+
